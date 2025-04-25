@@ -1,0 +1,19 @@
+---
+
+- name: service management
+  hosts: all
+  tasks:
+    - name: Restart nginx
+      apt:
+        name: nginx
+        state: restarted
+
+    - name: restart apache tomcat     
+      apt:
+        name: tomcat
+        state: restarted
+
+    - name: Restart MySql
+      apt:
+        name: MySql
+        state: restarted

@@ -1,0 +1,20 @@
+---
+
+- name: file operations
+  hosts: all
+  tasks:
+    - name: create a directory
+      file: 
+        path: /opt/demo
+        state: directory
+        mode: '0755'
+
+    - name: copy file to remote
+      copy: 
+        src: ./files/myfirstfile.txt
+        dest: /opt/demo/myfirstfile.txt
+    
+    - name: delete file
+      file:
+        path: /opt/demo/myfirstfile.txt
+        state: absent

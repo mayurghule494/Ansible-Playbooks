@@ -1,0 +1,25 @@
+---
+
+- name: Creating users and groups 
+
+  hosts: all
+  become: yes  # this means ansible can execute shell commands with sudo priviledges
+  tasks:
+    - name: creating user 
+      user:
+        name: mayur
+        shell: /bin/bash
+        group: sudo
+        state: present
+
+    - name: create a group
+      group:
+        name: devops
+        state: present
+        mode: 0755
+
+    - name: adding a user to a group
+      user:
+        name: mayur
+        groups: devops
+        append: yes    

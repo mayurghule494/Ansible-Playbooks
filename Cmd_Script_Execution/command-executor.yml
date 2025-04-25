@@ -1,0 +1,13 @@
+---
+
+- name: executing command on remote server
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: executing shell command to allow permission to log file
+      shell: "sudo chmod -R 0755 /var/log/nginx/error.log"
+
+    - name: executing shell script on remote machine
+
+      script: /home/ubuntu/scripts/create-keypairs.sh
