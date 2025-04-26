@@ -11,14 +11,18 @@
   ignore_errors: yes
 
 =======================================
+
 **failed_when**
+
 ----> Custom condition for failure.
+
 - name: Fail only if output contains "error"
   command: some_command
   register: result
   failed_when: "'error' in result.stdout"
   
 ======================================
+
 **Basic loop:**
 
 - name: Install multiple packages
