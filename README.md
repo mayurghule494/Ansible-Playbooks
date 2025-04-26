@@ -6,9 +6,11 @@
 **ignore_errors: yes**
 
 ----> Allows the task to continue even if it fails.
+```bash
 - name: Try something risky
   command: /bin/false
   ignore_errors: yes
+```
 
 =======================================
 
