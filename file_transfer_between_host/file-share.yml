@@ -1,16 +1,16 @@
---- 
+---
 
 - name: shaaring file
-  hosts: all
+  hosts: node1
   become: yes
 
   tasks:
     - name: share file from local to remote
       copy:
-        src: /var/log/nginx/error.log"
-        dest: /home/ubuntu/logs
+        src: /etc/ansible/ansible.cfg
+        dest: /home/ubuntu/ansible.cfg
 
     - name: share file from remote to local
       fetch:
-        src: var/log/nginx/error.log"
-        dest: /home/ubuntu/logs
+        src: /home/ubuntu/ansible.cfg
+        dest: /home/ubuntu/ansible.cfg
