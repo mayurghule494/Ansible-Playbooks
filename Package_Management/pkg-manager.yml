@@ -1,20 +1,19 @@
 ---
 - name: Package management by ansible
-  hosts: all
+  hosts: node1
+  become: yes
   tasks:
     - name: install nginx
-      apt: 
+      apt:
         name: nginx
         state: present
         update_cache: yes
 
-      service:
-        name: nginx
-        state: restarted  
 
-    - name: remove nginx
+
+    - name: Remove nginx package
       apt:
         name: nginx
         state: absent
-        
+
 

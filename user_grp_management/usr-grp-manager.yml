@@ -16,7 +16,6 @@
       group:
         name: devops
         state: present
-        mode: 0755
 
     - name: adding a user to a group
       user:

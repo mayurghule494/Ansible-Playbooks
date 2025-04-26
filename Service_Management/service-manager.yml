@@ -1,19 +1,19 @@
 ---
 
 - name: service management
-  hosts: all
+  hosts: node2
   tasks:
     - name: Restart nginx
-      apt:
+      service:
         name: nginx
         state: restarted
 
     - name: restart apache tomcat     
-      apt:
+      systemd:
         name: tomcat
         state: restarted
 
     - name: Restart MySql
-      apt:
+      service:
         name: MySql
         state: restarted

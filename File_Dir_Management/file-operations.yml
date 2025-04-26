@@ -1,20 +1,26 @@
 ---
 
 - name: file operations
-  hosts: all
+  hosts: node2
+  become: yes
   tasks:
     - name: create a directory
-      file: 
+      file:
         path: /opt/demo
         state: directory
         mode: '0755'
 
     - name: copy file to remote
-      copy: 
-        src: ./files/myfirstfile.txt
-        dest: /opt/demo/myfirstfile.txt
-    
+      copy:
+        src: ./file-operations.yml
+        dest: /opt/demo/my-operations.yml
+
+    - name: copy file from remote to local
+      fetch:
+        src: /opt/demo/my-operations.yml
+        dest: /home/ubuntu/my-operations.yml
+
     - name: delete file
       file:
-        path: /opt/demo/myfirstfile.txt
+        path: /opt/demo/my-operations.yml
         state: absent

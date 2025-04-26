@@ -1,0 +1,11 @@
+---
+- name: Installing java11 node 2
+  hosts: node2
+  become: yes
+
+  tasks:
+
+    - name: Installing Java11 node 2
+      apt:
+        name: jopenjdk-11-jdk
+        state: present
