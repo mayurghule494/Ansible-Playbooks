@@ -34,11 +34,15 @@
     - curl
     - htop
 =====================================
+
 **rescue:**
+
 This section only runs if the task inside block fails (i.e., if install_app returns an error).
 In this case, it logs a debug message: "Install failed, handling error."
 
+
 **always:**
+
 This section always runs, whether the block task fails or succeeds.
 It ensures that any temporary files are cleaned up by running cleanup_temp_files.
 
@@ -55,7 +59,9 @@ It ensures that any temporary files are cleaned up by running cleanup_temp_files
 
 ====================================
 
+
 **Nested loops (using with_nested):**
+
 - name: Combine users and groups
   debug:
     msg: "User: {{ item.0 }}, Group: {{ item.1 }}"
@@ -64,6 +70,7 @@ It ensures that any temporary files are cleaned up by running cleanup_temp_files
     - [ 'admin', 'users' ]
 
 =====================================
+
 **when Statements:**
 
 - name: Restart service if OS is Ubuntu
@@ -74,7 +81,9 @@ It ensures that any temporary files are cleaned up by running cleanup_temp_files
 
 
 =====================================
+
 **until with retries:**
+
 Retry a task until it succeeds or times out.
 
 - name: Wait for service to respond
@@ -89,6 +98,7 @@ Retry a task until it succeeds or times out.
 =====================================
 
 **Asynchronous Tasks:**
+
 Run long tasks in the background.
 
 - name: Start a long process
@@ -97,7 +107,9 @@ Run long tasks in the background.
   poll: 0     # don't wait
   
 ========================================
+
 **Delegation (delegate_to):**
+
 Run a task on another host, not the one in the play.
 
 - name: Fetch logs from web server to control node
